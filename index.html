@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Add Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="container">
+        <nav class="navigation">
+            <div class="logo">Minha Logo</div>
+            <div class="nav-links">
+                <a href="#" class="nav-item">Home</a>
+                <a href="#" class="nav-item">About</a>
+                <a href="#" class="nav-item">Projects</a>
+                <a href="#" class="nav-item">Contact</a>
+                <button id="themeToggle" class="theme-toggle">🌙</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="aboutme">
+            <h1>Carlos Felipe S. M.</h1>
+            <h2>Software Engineer</h2>
+            <div>
+                <address>Uberlândia, Minas Gerais, Brazil</address>
+                <p>cfsm9@gmail.com</p>
+                <button class="button"><a target="_blank" href="https://linkedin.com/in/carlos-felipe-s-m/">Entre em contato</a></button>
+            </div>
+        </section>
+
+        <section class="experience"> 
+            <h3>Experience</h3>
+            <article>
+                <h4>Support Analyst</h4>
+                <p>2023 to Present - Home Office </p>
+                <ul>
+                    <li>Customer Support: Provide technical support and resolve user issues through phone, email, or in-person.</li>
+                    <li>Diagnosis and Troubleshooting: Identify and fix hardware and software problems.</li>
+                    <li>System Maintenance: Ensure systems and networks are functioning correctly and perform preventive maintenance.</li>
+                    <li>Installation and Configuration: Install and configure new equipment and software.</li>
+                    <li>Documentation: Record problems, solutions, and procedures for future reference and IT policy compliance.</li>
+                    <li>User Training: Guide and train end-users on the proper use of technology and best practices.</li>
+                </ul>
+                <p>Skills: Remote Support, Software Troubleshooting, Bash commands, OS, Cybersecurity, Scripting and Automation</p>
+
+                <h4>Bilingual Attendant</h4>
+                <p>2021 - 2023 ~ In person</p>
+                <p>Responsible for managing reservations, providing information, and offering post-sales support for five restaurants (Chima Steakhouse) in the East Coast region of the United States.</p> 
+                <p>Teamwork, Communication, Bilingual.</p>
+            </article>
+        
+        </section>
+
+        <section class="skills">
+            <h3>Skills</h3>
+            <p>HTML, CSS, Acessability, Responsive Web Design, JavaScript, Python, SQL, Bootstrap, Node.js</p>
+
+            <h3 class="education">Education</h3>
+            <h4>UniAmerica Descomplica, Computer Science</h4>
+            <p>June 2023 to December 2027 <br />
+                I gained experience in software engineering by analyzing and
+                implementing software systems, developing programs in different languages,
+                and effectively managing data using SQL.
+            </p>
+        </section>
+    </main>
+    <section class="container contact-section">
+        <form class="contact-form">
+            <h3>Contact Me</h3>
+            
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="button">Send Message</button>
+        </form>
+    </section>
+    <footer class="container">
+        <section class="howtofindme">
+            <h3 class="">Across the Internet</h3>
+            <a target="_blank" href="https://github.com/mefelosc">GitHub</a>
+            <a target="_blank" href="https://www.linkedin.com/in/carlos-felipe-s-m/">LinkedIn</a>
+        </section>
+    </footer>
+    <br>
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+        });
+    </script>
+</body>
+</html>
