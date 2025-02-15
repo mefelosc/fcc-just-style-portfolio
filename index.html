@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Personal Portfolio</title>
 
     <!-- Add Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +12,335 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link href="/styles.css" rel="stylesheet">
+    <style>
+       /* Add at the beginning of the file */
+:root {
+    /* Dark theme (default) */
+    --bg-primary: #202020;
+    --bg-secondary: #424242;
+    --bg-footer: #525252;
+    --text-primary: #ffffff;
+    --text-secondary: #f8f9fa;
+    --hover-color: #8a8a8a;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* Light theme */
+:root[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f0f0f0;
+    --bg-footer: #e0e0e0;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --hover-color: #007bff;
+}
+
+/* Basic reset and container styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: var(--bg-primary);
+}
+
+/* Navigation styles using Grid */
+.navigation {
+    display: grid;
+    grid-template-columns: 200px 1fr; /* Logo takes 200px, nav links take remaining space */
+    align-items: center;
+    gap: 20px;
+    padding: 1rem 0;
+    color: var(--text-primary);
+}
+
+.logo {
+    /* Style your logo */
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+}
+
+.nav-links {
+    display: flex;  /* Changed from grid to flex */
+    align-items: center;  /* Center items vertically */
+    justify-content: flex-end;  /* Align items to the right */
+    gap: 2rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-primary);
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+    color: var(--hover-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navigation {
+        grid-template-columns: 1fr; /* Stack items on mobile */
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack links vertically */
+        gap: 1rem;
+        justify-content: center;
+    }
+}
+
+/* Main content grid layout */
+main.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Creates two columns: main content and sidebar */
+    gap: 2rem;
+    padding: 2rem 0;
+    background-color: var(--bg-primary);
+}
+
+/* About Me Section */
+.aboutme {
+    grid-column: 1 / -1; /* Spans full width */
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 9px;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
+
+.aboutme h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+    line-height: 1.2;
+}
+
+.aboutme h2 {
+    background-color: var(--bg-secondary);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-heading);
+    line-height: 1.2;
+}
+
+.aboutme address, 
+.aboutme p {
+    margin-bottom: 0.5rem;
+    
+}
+
+/* Skills and Education Section */
+.skills {
+    padding: 2rem;
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    color: var(--text-primary);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.skills h3 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    line-height: 1.2;
+}
+
+.skills p {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+/* Experience Section */
+.experience {
+    padding: 2rem;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.experience h4 {
+    color: var(--text-primary);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+    line-height: 1.2;
+}
+
+.experience ul {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+    
+}
+
+.experience li {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer styling */
+footer {
+    
+    background-color: var(--bg-footer);
+    border-radius: 9px;
+
+}
+
+
+.howtofindme {
+    text-align: center;
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    border-radius: 9px;
+    padding-top: 20px;
+    margin-inline: -20px;
+    padding-bottom: 20px;
+}
+
+.howtofindme a {
+    display: inline-block;
+    margin: 0.5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+
+}
+
+.howtofindme a:hover {
+    color: var(--hover-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    main.container {
+        grid-template-columns: 1fr; /* Stack sections on mobile */
+    }
+    
+    .aboutme,
+    .skills,
+    .experience {
+        padding: 1.5rem;
+    }
+}
+.button {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-radius: 9px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: 1px solid var(--text-primary);
+}
+
+.button a {
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.button:hover {
+    background-color: var(--hover-color);
+}
+
+/* Add theme toggle button styles */
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+    background-color: var(--bg-secondary);
+}
+
+/* Contact Form Styles */
+.contact-section {
+    margin: 2rem auto;
+    padding: 0px;
+}
+
+.contact-form {
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.contact-form h3 {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--text-secondary);
+    border-radius: 4px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--hover-color);
+}
+
+.contact-form .button {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 1.5rem;
+        margin: 0;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+}
+    </style>
 </head>
 
 <body>
